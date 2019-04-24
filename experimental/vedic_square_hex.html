@@ -4,8 +4,8 @@
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-        function digital_root(n) {
-            return n%15 || n && 15
+        function digital_root(base, n) {
+            return n%(base-1) || n && (base-1)
         }
         async function draw() {
             var canvas = document.getElementById('canvas');
@@ -13,34 +13,39 @@
                 var ctx = canvas.getContext('2d');
                 ctx.fillStyle = "#002222";
                 ctx.fillRect(0,0,canvas.width,canvas.height);
-                for (let i = 0; i < 16; i++) {
-                    for (let j = 0; j < 16; j++) {
-                        cellLength = 40
-                        cellPadding = 2
-                        dist = cellLength+cellPadding
+                // const base = 16
+                let k = 2
+                while (true) {
+                    for (let i = 0; i < k; i++) {
+                        for (let j = 0; j < k; j++) {
+                            cellPadding = 2
+                            cellLength = (canvas.width / k) - 2
+                            dist = cellLength+cellPadding
 
-                        let num = 0
-                        if (j == 0) {
-                            num = Math.ceil((i/16) * 256).toString(16)
-                        }
-                        if (i == 0) {
-                            num = Math.ceil((j/16) * 256).toString(16)
-                            console.log(num)
-                        }
+                            let num = 0
+                            if (j == 0) {
+                                num = Math.floor((i/k) * 256).toString(16)
+                                console.log(num)
+                            }
+                            if (i == 0) {
+                                num = Math.floor((j/k) * 256).toString(16)
+                            }
 
-                        if (i > 0 && j > 0) {
-                            num = Math.ceil(((digital_root(i*j))/16) * 256).toString(16)
-                        }
+                            if (i > 0 && j > 0) {
+                                num = Math.floor(((digital_root(k, i*j))/k) * 256).toString(16)
+                            }
 
-                        if (num < 10) {
-                            num = '0' + num
-                        }
-                        ctx.fillStyle = "#" + num + num + num;
-                        
-                        ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
+                            if (num.toString().length == 1) {
+                                num = '0' + num
+                            }
+                            ctx.fillStyle = "#" + num + num + num;
+                            
+                            ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
 
-                        await sleep(66);
+                        }
                     }
+                    k++;
+                    await sleep(666);
                 }
             }
         }
