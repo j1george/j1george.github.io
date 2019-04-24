@@ -1,0 +1,46 @@
+<html>
+ <head>
+     <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        function digital_root(n) {
+            return n%15 || n && 15
+        }
+        async function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = "#004444";
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+                for (let i = 0; i < 16; i++) {
+                    for (let j = 0; j < 16; j++) {
+                        cellLength = 20
+                        cellPadding = 1
+                        dist = cellLength+cellPadding
+
+                        let num = 0
+                        if (j == 0) {
+                            num = Math.ceil((i/16) * 16).toString(16)
+                        }
+                        if (i == 0) {
+                            num = Math.ceil((j/16) * 16).toString(16)
+                        }
+
+                        if (i > 0 && j > 0) {
+                            num = Math.ceil(((digital_root(i*j))/16) * 16).toString(16)
+                        }
+                        ctx.fillStyle = "#" + num + num + num;
+                        ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
+
+                        await sleep(50);
+                    }
+                }
+            }
+        }
+     </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" width="337" height="337"></canvas>
+ </body>
+</html>
