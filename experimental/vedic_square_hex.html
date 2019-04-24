@@ -42,11 +42,14 @@
                             
                             ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
 
+                            await sleep(20);
                         }
+
+                        await sleep(20);
                     }
                     console.log(k)
                     k *= 2;
-                    await sleep(666);
+                    await sleep(20);
                 }
             }
         }
