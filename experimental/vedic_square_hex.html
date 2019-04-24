@@ -18,7 +18,7 @@
                     let hash = {};
                     for (let i = 0; i < k; i++) {
                         for (let j = 0; j < k; j++) {
-                            const cellPadding = 2
+                            const cellPadding = (canvas.width / k) * 0.01
                             const cellLength = (canvas.width / k) - cellPadding
                             const dist = cellLength+cellPadding
 
