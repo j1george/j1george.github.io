@@ -5,42 +5,48 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
         function digital_root(n) {
-            return n%15 || n && 15
+            return n%31 || n && 31
         }
         async function draw() {
             var canvas = document.getElementById('canvas');
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
-                ctx.fillStyle = "#004444";
+                ctx.fillStyle = "#002222";
                 ctx.fillRect(0,0,canvas.width,canvas.height);
-                for (let i = 0; i < 16; i++) {
-                    for (let j = 0; j < 16; j++) {
+                for (let i = 0; i < 32; i++) {
+                    for (let j = 0; j < 32; j++) {
                         cellLength = 20
                         cellPadding = 1
                         dist = cellLength+cellPadding
 
                         let num = 0
                         if (j == 0) {
-                            num = Math.ceil((i/16) * 16).toString(16)
+                            num = Math.floor((i/32) * 256).toString(16)
                         }
                         if (i == 0) {
-                            num = Math.ceil((j/16) * 16).toString(16)
+                            num = Math.floor((j/32) * 256).toString(16)
+                            console.log(num)
                         }
 
                         if (i > 0 && j > 0) {
-                            num = Math.ceil(((digital_root(i*j))/16) * 16).toString(16)
+                            num = Math.floor(((digital_root(i*j))/32) * 256).toString(16)
+                        }
+
+                        if (num < 10) {
+                            num = '0' + num
                         }
                         ctx.fillStyle = "#" + num + num + num;
+                        
                         ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
 
-                        await sleep(50);
+                        await sleep(20);
                     }
                 }
             }
         }
      </script>
  </head>
- <body onload="draw();">
-   <canvas id="canvas" width="337" height="337"></canvas>
+ <body style="background: black;" onload="draw();">
+   <canvas id="canvas" width="675" height="675"></canvas>
  </body>
 </html>
