@@ -1,6 +1,7 @@
 <html>
 <head>
     <script>
+        'use strict';
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -14,14 +15,12 @@
                 // const base = 16
                 let k = 2
                 while (true) {
-                    console.log(k)
-                    ctx.fillStyle = "#002222";
-                    ctx.fillRect(0,0,canvas.width,canvas.height);
+                    let hash = {};
                     for (let i = 0; i < k; i++) {
                         for (let j = 0; j < k; j++) {
-                            cellPadding = 2
-                            cellLength = (canvas.width / k) - 2
-                            dist = cellLength+cellPadding
+                            const cellPadding = 2
+                            const cellLength = (canvas.width / k) - cellPadding
+                            const dist = cellLength+cellPadding
 
                             let num = 0
                             if (j == 0) {
@@ -38,18 +37,41 @@
                             if (num.toString().length == 1) {
                                 num = '0' + num
                             }
-                            ctx.fillStyle = "#" + num + num + num;
-                            
-                            ctx.fillRect(cellPadding + (dist*(i)), cellPadding + (dist*(j)), cellLength, cellLength);
+                            const obj = {
+                                    x: cellPadding + (dist*(i)),
+                                    y: cellPadding + (dist*(j)),
+                                    height: cellLength,
+                                    width: cellLength
+                                }
+                            if ("#" + num + num + num in hash) {
+                                hash["#" + num + num + num].push(obj)
+                            } else {
+                                hash["#" + num + num + num] = [obj]
+                            }
 
-                            await sleep(10);
+                            // await sleep(10);
                         }
+
+                        // await sleep(10);
+                    }
+                    
+
+                    ctx.fillStyle = "#002222";
+                    ctx.fillRect(0,0,canvas.width,canvas.height);
+                    for (const key of Object.keys(hash)) {
+                        ctx.beginPath()
+                        ctx.fillStyle = key
+                        for (const dim of hash[key]) {
+                            ctx.rect(dim.x, dim.y, dim.height, dim.width)
+                        }
+
+                        ctx.fill()
 
                         await sleep(10);
                     }
                     console.log(k)
                     k *= 2;
-                    await sleep(10);
+                    await sleep(2000);
                 }
             }
         }
