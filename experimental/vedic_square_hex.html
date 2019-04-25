@@ -16,6 +16,9 @@
                 let k = 2
                 while (k < 5000) {
                     let hash = {};
+                    var node = document.getElementById("k");
+                    node.style.cssText = 'color: white; font-family: "Arial"';
+                    node.innerHTML = 'Base: ' + k;
                     for (let i = 0; i < k; i++) {
                         for (let j = 0; j < k; j++) {
                             var cellPadding = (canvas.width / k) * 0.01
@@ -84,5 +87,6 @@
 </head>
 <body style="background: black;" onload="draw();">
     <canvas id="canvas" width="675" height="675"></canvas>
+    <p id="k"></p>
 </body>
 </html>
