@@ -69,12 +69,12 @@
                         ctx.fill()
                         await sleep(10);
                     }
-
-                    var img    = canvas.toDataURL("image/png");
-                    document.write('<img src="'+img+'"/>');
                     console.log(k)
                     k *= 2;
                     await sleep(2000);
+
+                    // var img    = canvas.toDataURL("image/png");
+                    // document.write('<img src="'+img+'"/>');
                 }
             }
         }
