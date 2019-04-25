@@ -1,0 +1,88 @@
+<html>
+<head>
+    <script>
+        'use strict';
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        function digital_root(base, n) {
+            return n%(base-1) || n && (base-1)
+        }
+        async function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                // const base = 16
+                let k = 2
+                while (true) {
+                    let hash = {};
+                    for (let i = 0; i < k; i++) {
+                        for (let j = 0; j < k; j++) {
+                            var cellPadding = (canvas.width / k) * 0.01
+                            cellPadding = cellPadding < 1 ? 0 : cellPadding
+                            const cellLength = (canvas.width / k) - cellPadding
+                            const dist = cellLength+cellPadding
+
+                            let num = 0
+                            if (j == 0) {
+                                num = Math.floor((i/k) * 256).toString(16)
+                            }
+                            if (i == 0) {
+                                num = Math.floor((j/k) * 256).toString(16)
+                            }
+
+                            if (i > 0 && j > 0) {
+                                num = Math.floor(((digital_root(k, i*j))/k) * 256).toString(16)
+                            }
+
+                            if (num.toString().length == 1) {
+                                num = '0' + num
+                            }
+                            const obj = {
+                                    x: cellPadding + (dist*(i)),
+                                    y: cellPadding + (dist*(j)),
+                                    height: cellLength,
+                                    width: cellLength
+                                }
+                            if ("#" + num + num + num in hash) {
+                                hash["#" + num + num + num].push(obj)
+                            } else {
+                                hash["#" + num + num + num] = [obj]
+                            }
+
+                            // await sleep(10);
+                        }
+
+                        // await sleep(10);
+                    }
+                    
+
+                    ctx.fillStyle = "#002222";
+                    ctx.fillRect(0,0,canvas.width,canvas.height);
+                    for (const key of Object.keys(hash)) {
+                        ctx.beginPath()
+                        ctx.fillStyle = key
+                        for (const dim of hash[key]) {
+                            ctx.rect(dim.x, dim.y, dim.height, dim.width)
+                        }
+
+                        ctx.fill()
+
+                        await sleep(10);
+                    }
+                    console.log(k)
+                    k *= 2;
+                    await sleep(2000);
+                }
+            }
+        }
+    </script>
+    <meta property="og:title" content="Vedic Square Hex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://georgejone.com/experimental/vedic_square_hex.html" />
+    <meta property="og:image" content="https://georgejone.com/experimental/vedic_square_hex.png">
+</head>
+<body style="background: black;" onload="draw();">
+    <canvas id="canvas" width="675" height="675"></canvas>
+</body>
+</html>
