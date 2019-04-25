@@ -68,6 +68,8 @@
 
                         ctx.fill()
 
+                        var img    = canvas.toDataURL("image/png");
+                        document.write('<img src="'+img+'"/>');
                         await sleep(10);
                     }
                     console.log(k)
