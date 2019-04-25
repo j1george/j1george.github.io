@@ -15,6 +15,9 @@
                 // const base = 16
                 let k = 2
                 while (true) {
+                    var node = document.getElementById("k");
+                    node.style.cssText = 'color: white';
+                    node.innerHTML = k.toString()
                     let hash = {};
                     for (let i = 0; i < k; i++) {
                         for (let j = 0; j < k; j++) {
@@ -69,7 +72,6 @@
                         ctx.fill()
                         await sleep(10);
                     }
-                    console.log(k)
                     k *= 2;
                     await sleep(2000);
                 }
@@ -83,5 +85,6 @@
 </head>
 <body style="background: black;" onload="draw();">
     <canvas id="canvas" width="675" height="675"></canvas>
+    <p id="k"></p>
 </body>
 </html>
