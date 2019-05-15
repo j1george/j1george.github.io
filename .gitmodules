@@ -1,0 +1,3 @@
+[submodule "artinsomniacs"]
+	path = artinsomniacs
+	url = https://github.com/j1george/Art-Insomniacs-Website.git
