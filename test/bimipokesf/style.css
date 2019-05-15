@@ -173,3 +173,10 @@ float: left;
 margin-left: -1.5em;
 color: #147efb;
 }
+html, body{height: 100%;}
+
+hr.vertical {
+  width: 0px;
+  height: 100%;
+  /* or height in PX */
+}
