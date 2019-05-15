@@ -50,10 +50,10 @@ animation: rotating 7s linear infinite;
 #flow2 span {
 display: block;
 width: 200vw;
-height: 10vw;
+height: 200vw;
 position: absolute;
 top: 0vw;
-left: -50vw;
+left: 0vw;
 border-radius: 90vw;
 opacity: 0.6;
 }
