@@ -186,7 +186,7 @@ hr.vertical {
     box-shadow: none;
 }
 .list-item:not(a) {
-    color: white !important;
+    color: white;
 }
 .has-text-black {
     color: #0a0a0a !important;
