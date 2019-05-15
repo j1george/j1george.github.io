@@ -52,8 +52,8 @@ display: block;
 width: 200vw;
 height: 200vw;
 position: absolute;
-bottom: 185vw;
-right: 50vw;
+top: 185vw;
+left: 50vw;
 border-radius: 90vw;
 opacity: 0.6;
 }
