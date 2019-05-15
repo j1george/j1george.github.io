@@ -181,6 +181,9 @@ hr.vertical {
   /* or height in PX */
 }
 .list {
-    background: #041221;
+    background: #363636 !important;
     color: white;
+}
+.list-item:not(a) {
+    color: white !important;
 }
