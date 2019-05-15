@@ -183,6 +183,7 @@ hr.vertical {
 .list {
     background: #363636 !important;
     color: white;
+    box-shadow: none;
 }
 .list-item:not(a) {
     color: white !important;
