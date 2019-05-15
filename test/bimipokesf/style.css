@@ -188,3 +188,6 @@ hr.vertical {
 .list-item:not(a) {
     color: white !important;
 }
+.has-text-black {
+    color: #0a0a0a !important;
+}
