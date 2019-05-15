@@ -180,3 +180,7 @@ hr.vertical {
   height: 100%;
   /* or height in PX */
 }
+.list {
+    background: #041221;
+    color: white;
+}
