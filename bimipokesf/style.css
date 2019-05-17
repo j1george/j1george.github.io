@@ -231,3 +231,18 @@ hr.vertical {
 .wave2 {
     background: url('http://www.templates-preview.com/bootstrap-templates/300111854/images/wave2.png') 0 0 repeat-x;
 }
+
+.hero-img > .container {
+  overflow:hidden; /*hide bounds of image */
+  margin:0;   /*reset margin of figure tag*/
+  max-width: 100%;
+}
+.hero-img > .container img {
+  display:block; /*remove inline-block spaces*/
+  max-width: 100%;
+  width:100%; /*make image streatch*/
+  margin:-11.875% 0;
+}
+.is-horizontal-center {
+  justify-content: center;
+}
