@@ -1,0 +1,25 @@
+#printPage
+{
+  margin: 0px;
+  padding: 0px;
+  width: 8.5in;
+  height: 11in;
+  clear: both;
+  background-color: gray;
+  page-break-after: always;
+}
+#cube
+{ 
+  position: relative;
+  top: 1in;
+  left: 1in;
+  width: 1in;
+  height: 1in;
+  background-color: white;
+}
+.box {
+    display: flex;
+    flex-wrap: wrap; /* Optional. only if you want the items to wrap */
+    justify-content: center; /* For horizontal alignment */
+    align-items: center; /* For vertical alignment */
+}
