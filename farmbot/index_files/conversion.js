@@ -19,5 +19,5 @@ const table = {
 };
 
 for (const [key, value] of Object.entries(table)) {
-  document.body.innerHTML = document.body.innerHTML.replace(key, value);
+  document.body.innerHTML = document.body.innerHTML.replaceAll(key, value);
 }
