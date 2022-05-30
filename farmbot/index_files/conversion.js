@@ -15,7 +15,8 @@ const table = {
   '2m': '6.56ft',
   '4m': '13.12ft',
   '1.13m': '3.71ft',
-  '3m': '9.84ft'
+  '3m': '9.84ft',
+  '1.1m': '3.61ft',
 };
 
 for (const [key, value] of Object.entries(table)) {
