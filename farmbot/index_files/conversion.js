@@ -18,4 +18,6 @@ const table = {
   '3m': '9.84ft'
 };
 
-document.body.innerHTML = document.body.innerHTML.replace(/[a-z]/gi, m => table[m]);
+for (const [key, value] of Object.entries(table)) {
+  document.body.innerHTML = document.body.innerHTML.replace(key, value);
+}
