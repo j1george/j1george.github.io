@@ -15,18 +15,7 @@ const table = {
   '2m': '6.56ft',
   '4m': '13.12ft',
   '1.13m': '3.71ft',
-  '3m': '9.84ft',
-  '': '',
-  '': '',
-  '': '',
+  '3m': '9.84ft'
 };
 
-function getLeafNodes(master) {
-  var nodes = Array.prototype.slice.call(master.getElementsByTagName("*"), 0);
-  var leafNodes = nodes.filter(function(elem) {
-      return !elem.hasChildNodes();
-  });
-  return leafNodes;
-}
-
-console.log(getLeafNodes(document.body));
+document.body.innerHTML = document.body.innerHTML.replace(/[a-z]/gi, m => table[m]);
