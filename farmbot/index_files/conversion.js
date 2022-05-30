@@ -17,6 +17,11 @@ const table = {
   '1.13m': '3.71ft',
   '3m': '9.84ft',
   '1.1m': '3.61ft',
+  '0.75m': '2.46ft',
+  '150mm': '5.9in',
+  '90mm': '3.54in',
+  '100mm': '3.94in',
+  '20mm': '0.79in',
 };
 
 for (const [key, value] of Object.entries(table)) {
