@@ -26,18 +26,22 @@ const table = {
 
 for (const [key, value] of Object.entries(table)) {
   let unit = '';
-  let res = '';
+  let lengthFeet = '';
+  let lengthInInches = '';
   if (key.includes('cm')) {
     unit = 'cm';
-    res = parseFloat(key.replace(unit, '')) * 0.39370;
+    lengthInInches = parseFloat(key.replace(unit, '')) * 0.39370;
   } else if (key.includes('mm')) {
     unit = 'mm';
-    res = parseFloat(key.replace(unit, '')) * 0.039370;
+    lengthInInches = parseFloat(key.replace(unit, '')) * 0.039370;
   } else if (key.includes('m')) {
     unit = 'm';
-    res = parseFloat(key.replace(unit, '')) * 39.37;
+    lengthInInches = parseFloat(key.replace(unit, '')) * 39.37;
   }
+  
+  lengthFeet = Math.floor(lengthInInches / 12);
+  lengthInInches %= 12;
 
-  document.body.innerHTML = document.body.innerHTML.replaceAll(key, res);
+  document.body.innerHTML = document.body.innerHTML.replaceAll(key, lengthInInches);
   document.body.innerHTML = document.body.innerHTML.replaceAll('5.9in bolt', '150mm bolt');
 }
