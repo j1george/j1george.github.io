@@ -12,9 +12,9 @@
       continue;
     }
 
-    const amt = parseInt(children[0]);
+    const amt = parseInt(children[0].innerHTML);
 
-    const cost = parseInt(children[children.length - 1]);
+    const cost = parseInt(children[children.length - 1].innerHTML.replace('$', ''));
     
     sum += amt * cost;
   }
