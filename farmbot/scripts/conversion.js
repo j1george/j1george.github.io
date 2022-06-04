@@ -26,4 +26,5 @@ const table = {
 
 for (const [key, value] of Object.entries(table)) {
   document.body.innerHTML = document.body.innerHTML.replaceAll(key, value);
+  document.body.innerHTML = document.body.innerHTML.replaceAll('5.9in bolt', '150mm bolt');
 }
