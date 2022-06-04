@@ -1,9 +1,15 @@
-const materialsTable = document.getElementById('materials');
+(() => {
+  const materialsTable = document.getElementById('materials');
 
-const rows = materialsTable.getElementsByTagName('tr');
+  const rows = materialsTable.getElementsByTagName('tr');
 
-console.log({rows});
+  console.log({rows});
 
-for (const tr of rows) {
-  console.log(tr.children);
-}
+  for (const tr of rows) {
+    if (!tr.hasChildNodes || tr.children[0].tagName !== 'td') {
+      continue;
+    }
+    console.log(tr.children);
+  }
+
+})();
