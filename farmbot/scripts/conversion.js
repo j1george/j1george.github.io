@@ -4,7 +4,7 @@
     const intPart = Math.floor(x);
     const decPart = (x - intPart) * 100;
 
-    const quarters = [100, 75, 50, 25];
+    const quarters = [100, 75, 50, 25, 0];
 
     let lowestDiff = 101;
     let ret = x;
