@@ -13,14 +13,14 @@
     }
 
     const amt = parseInt(children[0].innerHTML);
-
-    const cost = parseInt(children[children.length - 1].innerHTML.replace('$', ''));
+    const ppu = parseInt(children[1].innerHTML.replace('$', ''));
+    const cost = children[children.length - 1] = `$${amt * ppu}`;
     
-    sum += amt * cost;
+    sum += cost;
   }
 
   const lastRowChildren = rows[rows.length - 1].children;
   console.log({sum, innerhtml: lastRowChildren[lastRowChildren.length - 1].innerHTML})
-  lastRowChildren[lastRowChildren.length - 1].innerHTML = sum;
+  lastRowChildren[lastRowChildren.length - 1].innerHTML = `<strong>$${sum}</strong>`;
 
 })();
