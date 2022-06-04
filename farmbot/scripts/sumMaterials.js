@@ -13,7 +13,7 @@
     }
 
     const amt = parseInt(children[0].innerHTML);
-    const ppu = parseInt(children[1].innerHTML.replace('$', ''));
+    const ppu = parseInt(children[2].innerHTML.replace('$', ''));
     const cost = amt * ppu;
     children[children.length - 1] = `$${cost}`
     sum += cost;
