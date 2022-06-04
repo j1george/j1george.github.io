@@ -22,6 +22,8 @@ const table = {
   '90mm': '3.54in',
   '100mm': '3.94in',
   '20mm': '0.79in',
+  '30mm': '',
+  '65mm': '',
 };
 
 for (const [key, value] of Object.entries(table)) {
@@ -48,5 +50,5 @@ for (const [key, value] of Object.entries(table)) {
   const convertedStr = `${ftStr}${inStr}`
 
   document.body.innerHTML = document.body.innerHTML.replaceAll(key, convertedStr);
-  document.body.innerHTML = document.body.innerHTML.replaceAll('5.9in bolt', '150mm bolt');
+  document.body.innerHTML = document.body.innerHTML.replaceAll('5.91in bolt', '150mm bolt');
 }
