@@ -25,6 +25,19 @@ const table = {
 };
 
 for (const [key, value] of Object.entries(table)) {
-  document.body.innerHTML = document.body.innerHTML.replaceAll(key, value);
+  let unit = '';
+  let res = '';
+  if (key.includes('cm')) {
+    unit = 'cm';
+    res = parseFloat(key.replace(unit, '')) * 0.39370;
+  } else if (key.includes('mm')) {
+    unit = 'mm';
+    res = parseFloat(key.replace(unit, '')) * 0.039370;
+  } else if (key.includes('m')) {
+    unit = 'm';
+    res = parseFloat(key.replace(unit, '')) * 39.37;
+  }
+
+  document.body.innerHTML = document.body.innerHTML.replaceAll(key, res);
   document.body.innerHTML = document.body.innerHTML.replaceAll('5.9in bolt', '150mm bolt');
 }
