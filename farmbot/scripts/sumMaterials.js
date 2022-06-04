@@ -20,7 +20,6 @@
   }
 
   const lastRowChildren = rows[rows.length - 1].children;
-  console.log({sum, innerhtml: lastRowChildren[lastRowChildren.length - 1].innerHTML})
   lastRowChildren[lastRowChildren.length - 1].innerHTML = `<strong>$${sum}</strong>`;
 
 })();
