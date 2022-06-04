@@ -16,7 +16,7 @@
       }
     }
 
-    return ret;
+    return ret === 100 ? 0 : ret;
   };
 
   const table = {
