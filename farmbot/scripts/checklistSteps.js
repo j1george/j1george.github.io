@@ -43,25 +43,25 @@
 
     stepHeader.attr('class', await isChecked(id) ? 'show' : 'hide');
 
-    stepHeader.click(function() {
+    const isHidden = stepHeader.hasClass('hide');
 
-      const isHidden = stepHeader.hasClass('hide');
-
-      if (isHidden) {
-        stepHeader.click(function() {
-          $(this).next().toggle('slow');
-          return true;
-        }).next().hide();
-      } else {
-        stepHeader.click(function() {
-          $(this).next().toggle('slow');
-          return true;
-        }).next().show();
-      }
-      
-      stepHeader.attr('class', isHidden ? 'show' : 'hide');
-      hit(id);
-    });
+    if (isHidden) {
+      stepHeader.click(function() {
+        $(this).next().toggle('slow');
+    
+        stepHeader.attr('class', isHidden ? 'show' : 'hide');
+        hit(id);
+        return true;
+      }).next().hide();
+    } else {
+      stepHeader.click(function() {
+        $(this).next().toggle('slow');
+    
+        stepHeader.attr('class', isHidden ? 'show' : 'hide');
+        hit(id);
+        return true;
+      }).next().show();
+    }
   }
 
 })();
