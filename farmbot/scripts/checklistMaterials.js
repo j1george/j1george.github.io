@@ -6,10 +6,10 @@
       redirect: 'follow'
     })
     .then(res => res.json())
-    .then(data => data.value)
     .catch(x => {
       console.log({x});
-    });
+    })
+    .then(data => data.value);
     
     count = res ? res : 0;
 
