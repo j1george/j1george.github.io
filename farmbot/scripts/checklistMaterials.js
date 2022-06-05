@@ -7,7 +7,7 @@
     .then(res => res.json())
     .then(data => data.value);
     
-    console.log(res);
+    res = res ? res : 0;
 
     return res % 2 === 0;
   };
@@ -20,7 +20,6 @@
 
   for (const i in rows.slice(1, rows.length - 1)) {
     const tr = rows[parseInt(i) + 1];
-    console.log({i, rows, tr});
     const children = tr.children
 
     if (!children.length) {
@@ -28,7 +27,9 @@
     }
 
     const id = `chk${i}`
-    $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`)
+    $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
+
+    
   }
 
   const trTotal = rows[rows.length - 1];
