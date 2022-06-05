@@ -75,6 +75,6 @@
     const convertedStr = `${ftStr}${inStr}`
   
     document.body.innerHTML = document.body.innerHTML.replaceAll(key, convertedStr);
-    document.body.innerHTML = document.body.innerHTML.replaceAll('5.91in bolt', '150mm bolt');
+    document.body.innerHTML = document.body.innerHTML.replaceAll('6in bolt', '150mm bolt');
   }
 })();
