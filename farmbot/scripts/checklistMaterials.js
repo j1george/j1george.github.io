@@ -46,8 +46,8 @@
 
     const id = `chk${i}`
     $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
-    $(`#${id}`).click(event => {
-      console.log({event});
+    $(`#${id}`).click(function() {
+      console.log({this: this});
     });
   }
 
