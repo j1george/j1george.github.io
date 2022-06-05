@@ -34,7 +34,7 @@
 
   const rows = [...materialsTable.getElementsByTagName('tr')];
   const trHead = rows[0];
-  $(trHead).prepend('<th>Done</th>');
+  $(trHead).prepend('<th>Acquired</th>');
 
   for (const i in rows.slice(1, rows.length - 1)) {
     const tr = rows[parseInt(i) + 1];
