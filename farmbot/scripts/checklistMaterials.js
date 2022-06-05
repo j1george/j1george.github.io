@@ -1,7 +1,7 @@
 (async () => {
 
   const isChecked = async (id) => {
-    const res = await fetch(`https://api.countapi.xyz/get/gjfarmbotmaterialschecklist/${id}`, {
+    const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
       "method": "GET",
     })
     .then(res => res.json())
@@ -29,7 +29,7 @@
     const id = `chk${i}`
     $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
 
-    
+
   }
 
   const trTotal = rows[rows.length - 1];
