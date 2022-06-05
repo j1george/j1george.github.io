@@ -2,7 +2,8 @@
 
   const isChecked = async (id) => {
     const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
-      "method": "GET",
+      method: 'GET',
+      redirect: 'follow'
     })
     .then(res => res.json())
     .then(data => data.value);
