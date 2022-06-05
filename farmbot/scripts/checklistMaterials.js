@@ -1,7 +1,7 @@
 (async () => {
 
   const hit = async (id) => {
-    const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
+    const res = await fetch(`https://api.countapi.xyz/hit/gj.farmbot.materials/${id}`, {
       method: 'GET',
       redirect: 'follow'
     })
