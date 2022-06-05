@@ -68,9 +68,10 @@
     lengthFeet = Math.floor(Math.floor(lengthInInches) / 12);
     lengthInInches %= 12;
     lengthInInches = lengthInInches.toFixed(2);
+    lengthInInches = quarterRounder(lengthInInches);
   
     const ftStr = lengthFeet ? `${lengthFeet}ft` : '';
-    const inStr = `${quarterRounder(lengthInInches)}in`;
+    const inStr = lengthInInches ? `${lengthInInches}in` : '';
     const convertedStr = `${ftStr}${inStr}`
   
     document.body.innerHTML = document.body.innerHTML.replaceAll(key, convertedStr);
