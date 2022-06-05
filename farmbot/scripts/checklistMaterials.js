@@ -1,4 +1,17 @@
-(() => {
+(async () => {
+
+  const isChecked = async (id) => {
+    const res = await fetch(`https://api.countapi.xyz/get/gjfarmbotmaterialschecklist/${id}`, {
+      "method": "GET",
+    })
+    .then(res => res.json())
+    .then(data => data.value);
+    
+    console.log(res);
+
+    return res % 2 === 0;
+  };
+
   const materialsTable = document.getElementById('materials');
 
   const rows = [...materialsTable.getElementsByTagName('tr')];
@@ -14,7 +27,8 @@
       continue;
     }
 
-    $(tr).prepend(`<td><input type="checkbox" id="chk${i}" name="chk${i}" value="${children[1].innerHTML}"></td>`)
+    const id = `chk${i}`
+    $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`)
   }
 
   const trTotal = rows[rows.length - 1];
