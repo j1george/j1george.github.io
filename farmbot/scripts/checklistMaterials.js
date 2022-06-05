@@ -29,8 +29,9 @@
 
     const id = `chk${i}`
     $(tr).prepend(`<td><input type="checkbox" id="${i}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
-
-
+    $(`#${id}`).click(event => {
+      console.log({event});
+    });
   }
 
   const trTotal = rows[rows.length - 1];
