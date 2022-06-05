@@ -37,7 +37,7 @@
   for (const i in stepHeaders) {
     const stepHeader = $(stepHeaders[parseInt(i)]);
 
-    const id = `mat${i}`
+    const id = `step${i}`
 
     stepHeader.attr('id', id);
 
