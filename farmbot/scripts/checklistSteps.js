@@ -44,6 +44,8 @@
     stepHeader.attr('class', await isChecked(id) ? 'show' : 'hide');
 
     $(`#${id}`).click(function() {
+
+      stepHeader.attr('class', this.isChecked ? 'show' : 'hide');
       hit(id);
     });
   }
