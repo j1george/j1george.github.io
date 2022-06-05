@@ -44,7 +44,7 @@
       continue;
     }
 
-    const id = `chk${i}`
+    const id = `mat${i}`
     $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
     $(`#${id}`).click(function() {
       hit(id);
