@@ -7,7 +7,7 @@
     const quarters = [100, 75, 50, 25, 0];
 
     let lowestDiff = 101;
-    let ret = x;
+    let ret = decPart;
     for (const quarter of quarters) {
       const curDiff = Math.abs(quarter - decPart);
       if (curDiff < lowestDiff) {
@@ -15,6 +15,9 @@
         ret = quarter;
       }
     }
+
+    ret /= 100;
+    ret += intPart;
 
     return ret === 100 ? 0 : ret;
   };
