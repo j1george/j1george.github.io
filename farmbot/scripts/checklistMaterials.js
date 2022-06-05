@@ -8,9 +8,9 @@
     .then(res => res.json())
     .then(data => data.value);
     
-    res = res ? res : 0;
+    count = res ? res : 0;
 
-    return res % 2 === 0;
+    return count % 2 === 0;
   };
 
   const materialsTable = document.getElementById('materials');
