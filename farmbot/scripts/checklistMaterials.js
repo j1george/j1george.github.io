@@ -5,14 +5,7 @@
       method: 'GET',
       redirect: 'follow'
     })
-    .then(res => {
-
-      if (res.ok) {
-        return res.json();
-      }
-      
-      return await hit(id);
-    });
+    .then(res => res.json());
 
     return res;
   }
@@ -22,7 +15,7 @@
       method: 'GET',
       redirect: 'follow'
     })
-    .then(res => {
+    .then(async res => {
 
       if (res.ok) {
         return res.json();
