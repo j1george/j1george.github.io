@@ -14,7 +14,7 @@
       continue;
     }
 
-    $(tr).prepend(`<input type="checkbox" id="chk${i}" name="chk${i}" value="${children[1].innerHTML}">`)
+    $(tr).prepend(`<td><input type="checkbox" id="chk${i}" name="chk${i}" value="${children[1].innerHTML}"></td>`)
   }
 
   const trTotal = rows[rows.length - 1];
