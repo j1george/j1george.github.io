@@ -1,13 +1,34 @@
 (async () => {
 
+  const hit = async (id) => {
+    const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
+      method: 'GET',
+      redirect: 'follow'
+    })
+    .then(res => {
+
+      if (res.ok) {
+        return res.json();
+      }
+      
+      return await hit(id);
+    });
+
+    return res;
+  }
+
   const isChecked = async (id) => {
     const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
       method: 'GET',
       redirect: 'follow'
     })
-    .then(res => res.json())
-    .catch(x => {
-      console.log({x});
+    .then(res => {
+
+      if (res.ok) {
+        return res.json();
+      }
+      
+      return await hit(id);
     })
     .then(data => data.value);
     
