@@ -5,6 +5,7 @@
   const trHead = rows[0];
   $(trHead).prepend('<th>Done</th>')
   for (const i in rows.slice(1, rows.length - 1)) {
+    console.log(i);
     const tr = rows[i + 1];
     const children = tr.children
 
