@@ -45,7 +45,7 @@
 
     $(`#${id}`).click(function() {
 
-      stepHeader.attr('class', this.isChecked ? 'show' : 'hide');
+      stepHeader.attr('class', this.checked ? 'show' : 'hide');
       hit(id);
     });
   }
