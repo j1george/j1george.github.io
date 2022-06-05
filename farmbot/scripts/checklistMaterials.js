@@ -1,4 +1,4 @@
-(async () => {
+await (async () => {
 
   const hit = async (id) => {
     const res = await fetch(`https://api.countapi.xyz/hit/gj.farmbot.materials/${id}`, {
