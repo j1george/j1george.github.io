@@ -45,10 +45,13 @@
     }
 
     const id = `mat${i}`
-    $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
+    const checked = await isChecked(id);
+    $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${checked ? 'checked' : ''}></td>`);
     $(`#${id}`).click(function() {
       hit(id);
     });
+
+    $(tr).css('color', checked ? 'gray' : 'white');
   }
 
   const trTotal = rows[rows.length - 1];
