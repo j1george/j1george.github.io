@@ -49,6 +49,8 @@
     $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${checked ? 'checked' : ''}></td>`);
     $(`#${id}`).click(function() {
       hit(id);
+
+      $(tr).css('color', this.checked ? 'gray' : 'white');
     });
 
     $(tr).css('color', checked ? 'gray' : 'white');
