@@ -51,9 +51,11 @@
       hit(id);
 
       $(tr).css('color', this.checked ? 'gray' : 'white');
+      $(tr).css('text-decoration', checked ? 'line-through' : 'none');
     });
 
     $(tr).css('color', checked ? 'gray' : 'white');
+    $(tr).css('text-decoration', checked ? 'line-through' : 'none');
   }
 
   const trTotal = rows[rows.length - 1];
