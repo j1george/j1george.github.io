@@ -40,7 +40,7 @@ for (const i in stepHeaders) {
 
   stepHeader.attr('id', id);
 
-  stepHeader.attr('class', await isChecked(id) ? 'show' : 'hide');
+  stepHeader.attr('class', isChecked(id) ? 'show' : 'hide');
 
   const isHidden = stepHeader.hasClass('hide');
 

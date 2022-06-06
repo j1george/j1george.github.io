@@ -44,7 +44,7 @@ for (const i in rows.slice(1, rows.length - 1)) {
   }
 
   const id = `mat${i}`
-  $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${await isChecked(id) ? 'checked' : ''}></td>`);
+  $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${isChecked(id) ? 'checked' : ''}></td>`);
   $(`#${id}`).click(function() {
     hit(id);
   });
