@@ -51,7 +51,7 @@
       hit(id);
 
       $(tr).css('color', this.checked ? 'gray' : 'white');
-      $(tr).css('text-decoration', checked ? 'line-through' : 'none');
+      $(tr).css('text-decoration', this.checked ? 'line-through' : 'none');
     });
 
     $(tr).css('color', checked ? 'gray' : 'white');
