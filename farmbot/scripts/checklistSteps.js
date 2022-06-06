@@ -1,5 +1,5 @@
 
-const hit = async (id) => {
+const hitSteps = async (id) => {
   const res = await fetch(`https://api.countapi.xyz/hit/gj.farmbot.steps/${id}`, {
     method: 'GET',
     redirect: 'follow'
@@ -9,7 +9,7 @@ const hit = async (id) => {
   return res;
 }
 
-const isChecked = async (id) => {
+const isCheckedSteps = async (id) => {
   const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.steps/${id}`, {
     method: 'GET',
     redirect: 'follow'
@@ -20,7 +20,7 @@ const isChecked = async (id) => {
       return res.json();
     }
     
-    return await hit(id);
+    return await hitMats(id);
   })
   .then(data => data.value);
   
@@ -40,7 +40,7 @@ for (const i in stepHeaders) {
 
   stepHeader.attr('id', id);
 
-  stepHeader.attr('class', isChecked(id) ? 'show' : 'hide');
+  stepHeader.attr('class', isCheckedMats(id) ? 'show' : 'hide');
 
   const isHidden = stepHeader.hasClass('hide');
 
@@ -49,7 +49,7 @@ for (const i in stepHeaders) {
       $(this).next().toggle('slow');
   
       stepHeader.attr('class', isHidden ? 'show' : 'hide');
-      hit(id);
+      hitMats(id);
       return true;
     }).next().hide();
   } else {
@@ -57,7 +57,7 @@ for (const i in stepHeaders) {
       $(this).next().toggle('slow');
   
       stepHeader.attr('class', isHidden ? 'show' : 'hide');
-      hit(id);
+      hitMats(id);
       return true;
     }).next().show();
   }

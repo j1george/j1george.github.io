@@ -1,5 +1,5 @@
 
-const hit = async (id) => {
+const hitMats = async (id) => {
   const res = await fetch(`https://api.countapi.xyz/hit/gj.farmbot.materials/${id}`, {
     method: 'GET',
     redirect: 'follow'
@@ -9,7 +9,7 @@ const hit = async (id) => {
   return res;
 }
 
-const isChecked = async (id) => {
+const isCheckedMats = async (id) => {
   const res = await fetch(`https://api.countapi.xyz/get/gj.farmbot.materials/${id}`, {
     method: 'GET',
     redirect: 'follow'
@@ -20,7 +20,7 @@ const isChecked = async (id) => {
       return res.json();
     }
     
-    return await hit(id);
+    return await hitMats(id);
   })
   .then(data => data.value);
   
@@ -31,12 +31,12 @@ const isChecked = async (id) => {
 
 const materialsTable = document.getElementById('materials');
 
-const rows = [...materialsTable.getElementsByTagName('tr')];
-const trHead = rows[0];
+const rowsMats = [...materialsTable.getElementsByTagName('tr')];
+const trHead = rowsMats[0];
 $(trHead).prepend('<th>Acquired</th>');
 
-for (const i in rows.slice(1, rows.length - 1)) {
-  const tr = rows[parseInt(i) + 1];
+for (const i in rowsMats.slice(1, rowsMats.length - 1)) {
+  const tr = rowsMats[parseInt(i) + 1];
   const children = tr.children
 
   if (!children.length) {
@@ -44,11 +44,11 @@ for (const i in rows.slice(1, rows.length - 1)) {
   }
 
   const id = `mat${i}`
-  $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${isChecked(id) ? 'checked' : ''}></td>`);
+  $(tr).prepend(`<td><input type="checkbox" id="${id}" name="${id}" value="${children[1].innerHTML}" ${isCheckedMats(id) ? 'checked' : ''}></td>`);
   $(`#${id}`).click(function() {
-    hit(id);
+    hitMats(id);
   });
 }
 
-const trTotal = rows[rows.length - 1];
+const trTotal = rowsMats[rowsMats.length - 1];
 $(trTotal).prepend('<td></td>');
