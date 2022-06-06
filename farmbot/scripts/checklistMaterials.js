@@ -1,4 +1,4 @@
-const fnc = async () => {
+(async function() {
 
   const hit = async (id) => {
     const res = await fetch(`https://api.countapi.xyz/hit/gj.farmbot.materials/${id}`, {
@@ -54,6 +54,4 @@ const fnc = async () => {
   const trTotal = rows[rows.length - 1];
   $(trTotal).prepend('<td></td>');
 
-};
-
-fnc();
+})();
